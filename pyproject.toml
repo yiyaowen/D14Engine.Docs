@@ -1,0 +1,11 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "D14Engine"
+authors = [{name = "yiyaowen", email = ""}]
+dynamic = ["version", "description"]
+
+[project.optional-dependencies]
+doc = ["myst_parser", "sphinx-theme"]
