@@ -12,6 +12,8 @@ set BUILDDIR=build
 
 if "%1" == "" goto help
 
+rmdir /S /Q %5%BUILDDIR% >NUL 2>NUL
+
 %SPHINXBUILD% >NUL 2>NUL
 if errorlevel 9009 (
 	echo.
