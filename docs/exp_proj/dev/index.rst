@@ -153,9 +153,9 @@ Testing C++ Wrapper
 
       using namespace d14uikit;
 
-      int wmain(int argc, wchar_t* argv[])
+      int main()
       {
-          Application app(argc, argv);
+          Application app;
           MainWindow mwnd;
           return app.run();
       }
