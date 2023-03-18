@@ -80,6 +80,16 @@ Now we can start developing D14UIKit. The project is structured as below:
 
 * **Miscellaneous files**
 
+.. note::
+
+   **regen_pyi.bat** uses the **stubgen** tool from **mypy**:
+
+   .. sourcecode:: bat
+
+      $ pip install mypy
+
+   You don't have to use this if you have better one.
+
 Open *D14UIKit.sln* with Visual Studio, and then open *View* ➡ *Solution Explorer*:
 
 * **D14UIKit**
