@@ -7,14 +7,14 @@ Prerequisite
 D14UIKit is developed with `Visual Studio`_ toolchain, these necessary workloads should be installed with Visual Studio Installer before getting started (community version is enough):
 
 * C++ wrapper: **C++ Desktop Development** (compiler, linker and SDK etc.)
-* PocketPy wrapper: **Python Development** and *Python native development tools*.
+* Python wrapper: **Python Development** and *Python native development tools*.
 
 For more information about the mixed-programming of C++ and Python in Visual Studio, please see this article from MSDN: `Write C++ extensions for Python in Visual Studio`_.
 
 To make D14UIKit a wrapper of UIKit @ D14Engine, these basic techniques are used:
 
 * C++ wrapper: `pimpl idiom`_, used to minimize coupling and separate interfaces.
-* PocketPy wrapper: `pybind11`_, used to export C++ code to Python compatible Dll.
+* Python wrapper: `pybind11`_, used to export C++ code to Python compatible Dll.
 
 Basically, D14UIKit is migrated from the Common, Renderer and UIKit parts of D14Engine with some necessary modifications, which are recorded in **Src/sensitive.txt**. A new directory **Exp** is created at the root path of the migrated project, and the wrapper code is placed there.
 
@@ -57,7 +57,7 @@ Now we can start developing D14UIKit. The project is structured as below:
 * **Exp** (Wrapper code placed here)
 
   * **Inc** (C++ interfaces)
-  * **PyBind** (PocketPy interfaces)
+  * **PyBind** (Python interfaces)
   * **.h/.cpp** (Implementation files)
 
 * **Inc** (External header files)
@@ -73,8 +73,7 @@ Now we can start developing D14UIKit. The project is structured as below:
 
   * **PyBind** (D14UIKit.pyd will be copied here after building)
 
-    * **TestMain.py** (Used to test PocketPy wrapper)
-    * **regen_pyi.bat** (Used to regenerate pyi file from output pyd library)
+    * **TestMain.py** (Used to test Python wrapper)
 
   * **TestMain.cpp** (Used to test C++ wrapper)
 
@@ -82,7 +81,7 @@ Now we can start developing D14UIKit. The project is structured as below:
 
 .. note::
 
-   **regen_pyi.bat** uses the **stubgen** tool from **mypy**:
+   The primary project uses the **stubgen** tool from **mypy**:
 
    .. sourcecode:: bat
 
@@ -94,11 +93,11 @@ Open *D14UIKit.sln* with Visual Studio, and then open *View* ➡ *Solution Explo
 
 * **D14UIKit**
 
-  Primary project for building the C++ wrapper and the PocketPy wrapper from the source code. The generated library/module will be copied to the Test environments after building.
+  Primary project for building the C++ wrapper and the Python wrapper from the source code. The generated library/module will be copied to the Test environments after building.
 
 * **PyBind**
 
-  Test project for the PocketPy wrapper. You can simply debug the Python code and the C++ code together with the *Python native development tools* and the *Python debugging symbols*.
+  Test project for the Python wrapper. You can simply debug the Python code and the C++ code together with the *Python native development tools* and the *Python debugging symbols*.
 
 * **Test**
 
@@ -114,7 +113,7 @@ Building C++ Wrapper
 2. Select **Debug / Release (x64)** configuration.
 3. Build / Run the project.
 
-Building PocketPy Wrapper
+Building Python Wrapper
 -------------------------
 
 1. Set **D14UIKit** as the startup project.
@@ -162,7 +161,7 @@ Testing C++ Wrapper
 
 4. Build / Run the project.
 
-Testing PocketPy Wrapper
+Testing Python Wrapper
 ------------------------
 
 1. Set **PyBind** as the startup project.
@@ -181,7 +180,7 @@ Testing PocketPy Wrapper
 
 .. note::
 
-   Before debugging the PocketPy wrapper:
+   Before debugging the Python wrapper:
 
    1. Install the `debugging symbols`_ for Python interpreter.
    2. Check *Debug* ➡ *Enable native code debugging* option.
