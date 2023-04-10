@@ -5,4 +5,4 @@ API Reference
    :maxdepth: 3
 
    cpp
-   pkpy
+   python

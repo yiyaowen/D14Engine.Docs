@@ -22,7 +22,7 @@ D14Engine
    :caption: API Reference
 
    /api_refer/cpp/index
-   /api_refer/pkpy/index
+   /api_refer/python/index
 
 .. toctree::
    :maxdepth: 1
