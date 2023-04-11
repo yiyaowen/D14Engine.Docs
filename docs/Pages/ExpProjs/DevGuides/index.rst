@@ -77,6 +77,8 @@ Now we can start developing D14UIKit. The project is structured as below:
 
   * **TestMain.cpp** (Used to test C++ wrapper)
 
+* **package.ps1** (Used to package the release wrappers)
+
 * **Miscellaneous files**
 
 .. note::

@@ -6,5 +6,5 @@ D14UIKit is a UI library (retained mode) for Windows-desktop environment. It is 
 .. toctree::
    :maxdepth: 1
 
-   api/index
-   dev/index
+   Reference/index
+   DevGuides/index

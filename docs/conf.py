@@ -6,8 +6,7 @@ project = 'D14Engine'
 copyright = '2023, D14Studio'
 author = 'yiyaowen'
 
-release = '0.1'
-version = '0.1.0'
+version = 'developing'
 
 # -- General configuration
 

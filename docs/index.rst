@@ -6,36 +6,36 @@ D14Engine
    :hidden:
    :caption: D14Engine
 
-   /intro/index
+   /Pages/Introduction/index
 
 .. toctree::
    :maxdepth: 1
    :hidden:
    :caption: Tutorials
 
-   /tutorials/getstart/index
-   /tutorials/my1stgame/index
+   /Pages/Tutorials/GetStart/index
+   /Pages/Tutorials/My1Game/index
 
 .. toctree::
    :maxdepth: 1
    :hidden:
    :caption: API Reference
 
-   /api_refer/cpp/index
-   /api_refer/python/index
+   /Pages/Reference/Cpp/index
+   /Pages/Reference/Python/index
 
 .. toctree::
    :maxdepth: 1
    :hidden:
    :caption: Developer Guides
 
-   /dev_man/index
-   /dev_man/mod/index
+   /Pages/DevGuides/index
+   /Pages/DevGuides/Modules/index
 
 .. toctree::
    :maxdepth: 1
    :hidden:
    :caption: Exported Projects
 
-   /exp_proj/index
+   /Pages/ExpProjs/index
 
