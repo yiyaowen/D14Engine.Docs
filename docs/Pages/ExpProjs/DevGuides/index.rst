@@ -67,7 +67,7 @@ Now we can start developing D14UIKit. The project is structured as below:
   * **Commom**
   * **Renderer**
   * **UIKit**
-  * **sensitive.txt** (Records the modifications from UIKit @ D14Engine)
+  * **sensitive.txt** (Records the modifications to UIKit @ D14Engine)
 
 * **Test** (D14UIKit.dll will be copied here after building)
 
@@ -78,9 +78,7 @@ Now we can start developing D14UIKit. The project is structured as below:
   * **TestMain.cpp** (Used to test C++ wrapper)
 
 * **Wrap** (This directory will be created after running package.ps1)
-
 * **package.ps1** (Used to package the release wrappers)
-
 * **Miscellaneous files**
 
 .. note::
@@ -93,7 +91,7 @@ Now we can start developing D14UIKit. The project is structured as below:
 
    You don't have to use this if you have better one.
 
-Open *D14UIKit.sln* with Visual Studio, and then open *View* ➡ *Solution Explorer*:
+Open *D14UIKit.sln* with Visual Studio, and then open *View* => *Solution Explorer*:
 
 * **D14UIKit**
 
@@ -114,11 +112,25 @@ Building C++ Wrapper
 --------------------
 
 1. Set **D14UIKit** as the startup project.
-2. Select **Debug / Release (x64)** configuration.
+2. Select **Debug / Rebug / Release (x64)** configuration.
 3. Build / Run the project.
 
+.. note::
+
+   +-------------+------------------+--------------+-----------------+
+   | Config Name | Predefined-macro | Optimization | Runtime Library |
+   +=============+==================+==============+=================+
+   | Debug       | _DEBUG           | /Od          | /MDd            |
+   +-------------+------------------+--------------+-----------------+
+   | Rebug       | NDEBUG           | /O2          | /MDd            |
+   +-------------+------------------+--------------+-----------------+
+   | Debug       | NDEBUG           | /O2          | /MD             |
+   +-------------+------------------+--------------+-----------------+
+
+   In Visual C++, you must specify link option /MD or /MDd to build a DLL target, where 'M' means 'Multi-thread' and 'D' means 'DLL-specific' (suffix 'd' means 'debug'). Just as its name implies, /MDd leads to linking with the debug version MSVC library and /MD for the release version one. Since their implementations are different (for example, the /MDd standard library may output some error hints instead of abrupt crash to help debug, while the /MD one is thoroughly optimized), a debug version executable must link with a /MDd DLL, and vice versa.
+
 Building Python Wrapper
--------------------------
+-----------------------
 
 1. Set **D14UIKit** as the startup project.
 2. Select **DPyBind / RPyBind (x64)** configuration.
@@ -166,7 +178,7 @@ Testing C++ Wrapper
 4. Build / Run the project.
 
 Testing Python Wrapper
-------------------------
+----------------------
 
 1. Set **PyBind** as the startup project.
 2. Select **Debug / Release (Any CPU)** configuration.
@@ -182,11 +194,43 @@ Testing Python Wrapper
 
 4. Run with a Python interpreter.
 
-.. note::
+.. tip::
 
-   Before debugging the Python wrapper:
+   If you want to debug the Python wrapper with C++ code:
 
    1. Install the `debugging symbols`_ for Python interpreter.
-   2. Check *Debug* ➡ *Enable native code debugging* option.
+   2. Check *Debug* => *Enable native code debugging* option.
 
 .. _debugging symbols: https://learn.microsoft.com/en-us/visualstudio/python/debugging-symbols-for-mixed-mode-c-cpp-python
+
+Packaging Final Wrappers
+------------------------
+
+Run ``package.ps1 v1_0`` in Windows PowerShell, where 'v1_0' is a version tag that will be appended to the file name of the final wrapper archive (for example, **d14uikit_xxx_v1_0**). A sub-directory **Wrap** will be generated or updated at the project root directory:
+
+* **Wrap**
+
+  * **cpp** (Final C++ wrapper)
+
+    * **include**
+    * **lib**
+
+      * **debug** (Includes DLL created with ``/MDd``)
+      * **release** (Includes DLL created with ``/MD``)
+      * **D14UIKit.lib** (Common library definitions)
+
+  * **python** (Final Python wrapper)
+
+    * **D14UIKit.pyd** (Python dynamic module)
+    * **D14UIKit.pyi** (Python intellisense helper)
+
+  * **d14uikit_cpp_v1_0.zip** (Archive of **cpp** directory)
+  * **d14uikit_python_v1_0.zip** (Archive of **python** directory)
+
+.. tip::
+
+   If you are not familiar with PowerShell, run the alternative in Command Prompt:
+
+   .. sourcecode:: bat
+
+      $ powershell -f package.ps1 v1_0
