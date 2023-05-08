@@ -15,10 +15,3 @@ extensions = ['myst_parser']
 # -- Options for HTML output
 
 html_theme = 'sphinx_book_theme'
-
-# -- Options for translation
-
-locale_dir = ["locales"]
-
-gettext_uuid = True
-gettext_compact = False
