@@ -1,37 +1,18 @@
-@ECHO OFF
+@echo off
 
-pushd %~dp0
-
-REM Command file for Sphinx documentation
-
-if "%SPHINXBUILD%" == "" (
-	set SPHINXBUILD=sphinx-build
+if "%1" == "clean" (
+    rmdir /S /Q build >NUL 2>NUL
+) ^
+else if "%1" == "html" (
+    rmdir /S /Q build/html >NUL 2>NUL
+    sphinx-build -b html . build/html
+    sphinx-build -b html -D language=en_US . build/html/en_US
+) ^
+else if "%1" == "open" (
+    build\html\index.html >NUL 2>NUL
+) ^
+else if "%1" == "trans" (
+    rmdir /S /Q build/trans >NUL 2>NUL
+    sphinx-build -b gettext . build/trans
+    sphinx-intl update -p build/trans -l en_US
 )
-set SOURCEDIR=.
-set BUILDDIR=build
-
-if "%1" == "" goto help
-
-rmdir /S /Q %5%BUILDDIR% >NUL 2>NUL
-
-%SPHINXBUILD% >NUL 2>NUL
-if errorlevel 9009 (
-	echo.
-	echo.The 'sphinx-build' command was not found. Make sure you have Sphinx
-	echo.installed, then set the SPHINXBUILD environment variable to point
-	echo.to the full path of the 'sphinx-build' executable. Alternatively you
-	echo.may add the Sphinx directory to PATH.
-	echo.
-	echo.If you don't have Sphinx installed, grab it from
-	echo.http://sphinx-doc.org/
-	exit /b 1
-)
-
-%SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
-goto end
-
-:help
-%SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
-
-:end
-popd

@@ -4,5 +4,5 @@ API Reference
 .. toctree::
    :maxdepth: 1
 
-   Cpp/index
-   Python/index
+   cpp/index
+   python/index

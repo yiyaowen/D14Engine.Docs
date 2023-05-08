@@ -6,36 +6,35 @@ D14Engine
    :hidden:
    :caption: D14Engine
 
-   /Pages/Introduction/index
+   /pages/intro/index
 
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: Tutorials
+   :caption: 使用教程
 
-   /Pages/Tutorials/GetStart/index
-   /Pages/Tutorials/My1Game/index
+   /pages/tutorials/getting_started/index
+   /pages/tutorials/my_first_game/index
 
 .. toctree::
    :maxdepth: 1
    :hidden:
    :caption: API Reference
 
-   /Pages/Reference/Cpp/index
-   /Pages/Reference/Python/index
+   /pages/reference/cpp/index
+   /pages/reference/python/index
 
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: Developer Guides
+   :caption: 开发者指南
 
-   /Pages/DevGuides/index
-   /Pages/DevGuides/Modules/index
+   /pages/devs/index
+   /pages/devs/modules/index
 
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: Exported Projects
+   :caption: 导出项目
 
-   /Pages/ExpProjs/index
-
+   /pages/exprojs/d14uikit/index
