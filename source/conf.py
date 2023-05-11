@@ -9,7 +9,7 @@
 project = 'D14Engine'
 author = 'yiyaowen'
 copyright = '2023, yiyaowen'
-version = 'beta'
+version = 'alpha'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
