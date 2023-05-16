@@ -8,7 +8,7 @@ D14UIKit 是一个适用于 Windows 桌面环境的 UI 库，提供了 C++ 和 P
 
 * `在 GitHub 上下载最新的 D14UIKit 导出库`_
 
-.. image:: https://raw.githubusercontent.com/yiyaowen/D14Engine.Images/main/d14uikit/overview.png
+.. image:: https://raw.githubusercontent.com/yiyaowen/D14Engine.Docs.Img/main/d14uikit/overview.png
 
 .. _在 GitHub 上下载最新的 D14UIKit 导出库: https://github.com/yiyaowen/D14UIKit/releases
 
