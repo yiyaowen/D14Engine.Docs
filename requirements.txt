@@ -1,2 +1,2 @@
 furo
-sphinx_tabs.tabs
+sphinx-tabs
