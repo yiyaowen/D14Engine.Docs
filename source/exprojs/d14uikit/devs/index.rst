@@ -4,19 +4,19 @@
 准备工作
 --------
 
-D14UIKit 的开发基于 `Visual Studio`_ 系列工具，因此在开始之前，必须通过 Visual Studio Installer 安装好以下组件（community 版本即可）：
+D14UIKit 的开发基于 `Visual Studio`_ 系列工具，因此首先需要通过 Visual Studio Installer 安装以下组件（community 版本即可）：
 
-* C++ 接口： **C++ Desktop Development** （编译器、链接器和 SDK 等）
-* Python 接口： **Python Development** 和 *Python native development tools*
+* C++ 接口： **C++ Desktop Development** （编译器、链接器和 SDK 等）。
+* Python 接口： **Python Development**，并勾选 *Python native development tools*。
 
 关于如何在 Visual Studio 中进行 C++ 和 Python 的联合开发，推荐参考这篇 MSDN 文章： `在 Visual Studio 中为 Python 代码编写 C++ 拓展`_。
 
-为了将 UIKit @ D14Engine 打包成 D14UIKit，项目采用了以下两项技术：
+为了将 UIKit @ D14Engine 打包成 D14UIKit，我们主要采用了以下两项技术：
 
 * C++ 接口： `pimpl idiom`_，用于减少耦合、分离接口与实现。
 * Python 接口： `pybind11`_，用于将 C++ 代码导出为 Python 兼容的 Dll。
 
-D14UIKit 基本上由 D14Engine 的 Common、Renderer 和 UIKit 模块迁移而来，但是也做了一些必要的修改，所有的改动均记录在 **Src/sensitive.txt** 文件里。此外，我们在迁移后的项目根目录下创建了一个新的文件夹 **Exp** 用于存放额外的包装代码。
+D14UIKit 基本上是从 D14Engine 的 Common、Renderer 和 UIKit 模块迁移而来，但是也做了一些必要的修改，相关的改动均记录在 **Src/sensitive.txt** 文件中。此外，我们在迁移后的项目根目录下创建了一个新的文件夹 **Exp** 用于存放额外的包装代码。
 
 .. _Visual Studio: https://visualstudio.microsoft.com/
 .. _在 Visual Studio 中为 Python 代码编写 C++ 拓展: https://learn.microsoft.com/en-us/visualstudio/python/working-with-c-cpp-python-in-visual-studio?view=vs-2022
@@ -32,20 +32,34 @@ D14UIKit 基本上由 D14Engine 的 Common、Renderer 和 UIKit 模块迁移而�
 
    $ git clone https://github.com/yiyaowen/D14UIKit --depth=1
 
-由于 git 对大文件的支持并不完善，我们在 D14UIKit 中使用了一个 `Lfs`_ 子模块来维护二进制文件（图像、着色器等）。该大文件系统基于私有服务器，D14UIKit 默认托管在 ubuntu@d14games.com 上。如需验证，请联系 yiyaowen@github 获取密码。
+由于 git 对大文件的支持并不完善（git-lfs 免费版限制了容量和带宽），我们在 D14UIKit 中使用了 `Lfs`_ 子模块来维护二进制文件（图像、着色器等）。该模块基于私有服务器，D14UIKit 托管在 ubuntu@d14games.com 上，为了构建项目，首先需要下载 `D14UIKit 二进制资源包`_，然后将其复制到原始项目中。如果在开发时需要上传或更新二进制文件，请联系 yiyaowen@github 获取建立 SSH 连接的密码（执行 Lfs pull/push 操作时需要验证）。
 
-Lfs 中的脚本基于  py.paramiko 包来建立 SSH 连接：
+.. _D14UIKit 二进制资源包: https://d14games.com/downloads/developer/D14UIKit.zip
 
-.. sourcecode:: bat
+.. note::
 
-   $ pip install paramiko
+   针对不同的开发目标，可以选择获取项目二进制资源的途径。如果仅对源代码进行更改，则无需管理二进制文件，只需进行通常的 git 操作；如果需要更改二进制文件，则需要通过 Lfs 中的 Python 脚本来与托管服务器进行交互。
 
-在项目的根目录下执行如下命令来下载所需的大文件：
+   .. tabs::
 
-.. sourcecode:: bat
+      .. tab:: 仅更改源代码
 
-   $ cd D14UIKit
-   $ py lfs/pull.py
+         点击上方链接下载 D14UIKit 二进制资源包 **D14UIKit.zip**，解压后得到 D14UIKit 文件夹，然后将内容复制到项目根目录下。
+
+      .. tab:: 更改二进制文件
+
+         Lfs 中的脚本基于  py.paramiko 包来建立 SSH 连接：
+
+         .. sourcecode:: bat
+
+            $ pip install paramiko
+
+         在项目的根目录下执行如下命令来下载所需的大文件：
+
+         .. sourcecode:: bat
+
+            $ cd D14UIKit
+            $ py Lfs/pull.py
 
 万事俱备，可以着手开发 D14UIKit。整个项目的结构如下：
 
