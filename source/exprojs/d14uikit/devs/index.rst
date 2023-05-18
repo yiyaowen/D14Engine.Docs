@@ -32,34 +32,36 @@ D14UIKit 基本上是从 D14Engine 的 Common、Renderer 和 UIKit 模块迁移�
 
    $ git clone https://github.com/yiyaowen/D14UIKit --depth=1
 
-由于 git 对大文件的支持并不完善（git-lfs 免费版限制了容量和带宽），我们在 D14UIKit 中使用了 `Lfs`_ 子模块来维护二进制文件（图像、着色器等）。该模块基于私有服务器，D14UIKit 托管在 ubuntu@d14games.com 上，为了构建项目，首先需要下载 `D14UIKit 二进制资源包`_，然后将其复制到原始项目中。如果在开发时需要上传或更新二进制文件，请联系 yiyaowen@github 获取建立 SSH 连接的密码（执行 Lfs pull/push 操作时需要验证）。
+由于 git 对大文件的支持并不完善（git-lfs 有容量和带宽限制），我们在 D14UIKit 中使用了 `Lfs`_ 子模块来管理项目中的二进制资源。该模块基于私有服务器，D14UIKit 默认托管在 ubuntu@d14games.com 上，为了构建项目，首先需要下载 :download:`D14UIKit 资源包 <https://d14games.com/downloads/developer/D14UIKit.zip>`，然后将其复制到原始项目中。
 
-.. _D14UIKit 二进制资源包: https://d14games.com/downloads/developer/D14UIKit.zip
+.. _GitHub: https://github.com/yiyaowen/D14UIKit
+.. _Lfs: https://github.com/yiyaowen/Lfs
 
 .. note::
 
-   针对不同的开发目标，可以选择获取项目二进制资源的途径。如果仅对源代码进行更改，则无需管理二进制文件，只需进行通常的 git 操作；如果需要更改二进制文件，则需要通过 Lfs 中的 Python 脚本来与托管服务器进行交互。
+   针对不同的开发目标，可以选择获取构建项目所需的二进制资源的途径。如果仅对源代码进行更改，则只需通常的 git 操作；如果想要对资源文件进行修改，则还需要通过 Lfs 中的 Python 脚本来与托管服务器进行交互。
 
    .. tabs::
 
       .. tab:: 仅更改源代码
 
-         点击上方链接下载 D14UIKit 二进制资源包 **D14UIKit.zip**，解压后得到 D14UIKit 文件夹，然后将内容复制到项目根目录下。
+         点击上方链接下载 D14UIKit 资源包 **D14UIKit.zip**，解压后得到 D14UIKit 文件夹，然后将内容复制到项目根目录下。
 
       .. tab:: 更改二进制文件
 
-         Lfs 中的脚本基于  py.paramiko 包来建立 SSH 连接：
+         Lfs 中的 Python 脚本基于 py.paramiko 包来建立 SSH 连接：
 
          .. sourcecode:: bat
 
             $ pip install paramiko
 
-         在项目的根目录下执行如下命令来下载所需的大文件：
+         在 D14UIKit 的根目录下执行如下命令来下载所需的大文件：
 
          .. sourcecode:: bat
 
-            $ cd D14UIKit
             $ py Lfs/pull.py
+
+         上述操作需要验证，请联系 yiyaowen@github 获取密码。
 
 万事俱备，可以着手开发 D14UIKit。整个项目的结构如下：
 
@@ -76,6 +78,7 @@ D14UIKit 基本上是从 D14Engine 的 Common、Renderer 和 UIKit 模块迁移�
 
 * **Inc** (外部头文件)
 * **Lfs**
+* **Out** (该目录将在运行 package.ps1 进行打包后创建)
 * **Src** (从 D14Engine 迁移的模块)
 
   * **Commom**
@@ -91,11 +94,10 @@ D14UIKit 基本上是从 D14Engine 的 Common、Renderer 和 UIKit 模块迁移�
 
   * **TestMain.cpp** (用于测试 C++ 包装)
 
-* **Wrap** (该目录将在运行 package.ps1 进行打包后创建)
-* **package.ps1** (用于打包生成 release 版本的包装)
-* **杂项文件**
+* **package.ps1** (用于打包生成的各版本包装)
+* **其它文件**
 
-.. note::
+.. important::
 
    主项目使用 **mypy** 中的 **stubgen** 工具来生成 Python 提示文件：
 
@@ -105,22 +107,19 @@ D14UIKit 基本上是从 D14Engine 的 Common、Renderer 和 UIKit 模块迁移�
 
    如果你有更棒的工具，可以对 **package.ps1** 稍加修改来替换它。
 
-使用 Visual Studio 打开 *D14UIKit.sln*，然后在 *视图* 中选择 *解决方案资源管理器*：
+使用 Visual Studio 打开 **D14UIKit.sln**，然后在 *视图* 中打开 *解决方案资源管理器*，可以看到项目如下：
 
 * **D14UIKit**
 
-  用于从源代码构建 C++ 包装和 Python 包装的主项目。构建完成后，生成的库、模块将会被复制到相关测试环境下。
+  用于从源码构建 C++ 和 Python 包装的主项目。该项目定义了生成后事件，在相关配置构建完成后，生成的库文件、模块将会被复制到相关测试环境中。
 
 * **PyBind**
 
-  用于测试 Python 包装的子项目。通过 *Python native development tools* 和 *Python debugging symbols* 可以很方便地对 Python 代码和 C++ 代码进行联合调试。
+  用于测试 Python 包装的子项目。通过 *Python native development tools* 和 *Python debugging symbols* 可以很方便地对 Python 和 C++ 代码进行联合调试。
 
 * **Test**
 
-  用于测试 C++ 包装的子项目。所有的依赖项（头文件路径、库路径等）都已经设置好，可以很方便地编写测试程序。
-
-.. _GitHub: https://github.com/yiyaowen/D14UIKit
-.. _Lfs: https://github.com/yiyaowen/Lfs
+  用于测试 C++ 包装的子项目。依赖项（包含路径、库路径等）都已配置好，可以很方便地进行测试。
 
 构建 C++ 包装
 -------------
@@ -131,17 +130,28 @@ D14UIKit 基本上是从 D14Engine 的 Common、Renderer 和 UIKit 模块迁移�
 
 .. note::
 
-   +-------------+------------------+--------------+-----------------+
-   | Config Name | Predefined-macro | Optimization | Runtime Library |
-   +=============+==================+==============+=================+
-   | Debug       | _DEBUG           | /Od          | /MDd            |
-   +-------------+------------------+--------------+-----------------+
-   | Rebug       | NDEBUG           | /O2          | /MDd            |
-   +-------------+------------------+--------------+-----------------+
-   | Debug       | NDEBUG           | /O2          | /MD             |
-   +-------------+------------------+--------------+-----------------+
+   .. list-table:: D14UIKit 项目中各配置的对比
+      :header-rows: 1
+      :width: 100%
 
-   在 Visual C++ 中，你必须指定 /MD 或 /MDd 链接选项来生成 DLL 目标，其中 'M' 代表 'Multi-thread'（多线程），'D' 代表 'DLL-specific'（后缀 'd' 代表 'debug'）。顾名思义，使用 /MDd 选项会链接 debug 版本的 MSVC 库，而 /MD 选项则对应 release 版本的库。由于它们的实现并不相同（例如，/MDd 版本的标准库可能会在出错时输出相关信息而不是直接崩溃来帮助调试，而 /MD 版本的库则被完全优化了），debug 版本的应用程序必须与 /MDd 版本的 DLL 链接，反之亦然。
+      * - 配置名称
+        - 预定义宏
+        - 优化选项
+        - 运行时库
+      * - Debug
+        - _DEBUG
+        - /Od
+        - /MDd
+      * - Rebug
+        - NDEBUG
+        - /O2
+        - /MDd
+      * - Release
+        - NDEBUG
+        - /O2
+        - /MD
+
+   在 Visual C++ 中，必须指定 /MD 或 /MDd 链接选项来配置生成的 DLL 目标，其中 M 代表 Multi-thread，D 代表 DLL-specific（后缀 d 代表 debug）。顾名思义，使用 /MDd 选项会链接 debug 版本的 MSVC 库，而 /MD 选项则对应 release 的版本。由于它们的实现并不相同，例如 /MDd 版本的标准库可能会在出错时输出相关信息而不是直接崩溃来帮助调试，而 /MD 版本的库则被完全优化了，因此 debug 版本的应用程序必须与 /MDd 版本的 DLL 链接，反之亦然，否则会在运行时出错。
 
 构建 Python 包装
 ----------------
@@ -150,9 +160,9 @@ D14UIKit 基本上是从 D14Engine 的 Common、Renderer 和 UIKit 模块迁移�
 2. 在配置方案 **DPyBind / RPyBind (x64)** 中选择一个。
 3. 构建、运行项目。
 
-.. note::
+.. important::
 
-   为了构建 PyBind，必须首先安装 pybind11 包：
+   为了构建 PyBind，首先需要安装 pybind11 包：
 
    .. sourcecode:: bat
 
@@ -175,7 +185,7 @@ D14UIKit 基本上是从 D14Engine 的 Common、Renderer 和 UIKit 模块迁移�
 2. 在配置方案 **Debug / Release (x64)** 中选择一个。
 3. 编写测试程序，示例如下：
 
-   .. sourcecode:: c++
+   .. code-block:: c++
 
       #include "Application.h"
       #include "MainWindow.h"
@@ -198,7 +208,7 @@ D14UIKit 基本上是从 D14Engine 的 Common、Renderer 和 UIKit 模块迁移�
 2. 在配置方案 **Debug / Release (Any CPU)** 中选择一个。
 3. 编写测试脚本，示例如下：
 
-   .. sourcecode:: python
+   .. code-block:: python
 
       from D14UIKit import Application, MainWindow
 
@@ -210,22 +220,23 @@ D14UIKit 基本上是从 D14Engine 的 Common、Renderer 和 UIKit 模块迁移�
 
 .. tip::
 
-   如果你想要在运行 Python 包装时调试 C++ 代码：
+   如果你想要在运行 Python 包装的同时调试背后的 C++ 代码：
 
    1. 在安装 Python 解释器时勾选 `debugging symbols`_ 选项。
    2. 在 PyBind 项目的 *调试* 属性中勾选 *启用本机代码调试* 选项。
 
 .. _debugging symbols: https://learn.microsoft.com/en-us/visualstudio/python/debugging-symbols-for-mixed-mode-c-cpp-python
 
-打包生成的库、模块
-------------------
+打包生成的模块
+--------------
 
-在 Windows PowerShell 中运行 ``package.ps1 v1_0``，其中版本标签 'v1_0' 将会被添加到打包后的压缩文件名末尾（例如， **d14uikit_xxx_v1_0**），此外还将在项目的根目录下创建或更新包含最终文件的 **Wrap** 子目录。
+在分别完成 D14UIKit 项目中 Rebug、Release 和 PyRelease 配置的构建后，各包装的模块文件已生成在中间目录，接着需要在 Windows PowerShell 中运行 ``package.ps1 v1_0``，其中版本标签 v1_0 将会被添加到打包后的压缩文件名末尾（例如 **d14uikit_xxx_v1_0**），并创建或更新包含有导出模块的 **Out** 目录。
 
-* **Wrap**
+* **Out**
 
-  * **cpp** (最终的 C++ 包装)
+  * **cpp** (导出的 C++ 包装)
 
+    * **demo**
     * **include**
     * **lib**
 
@@ -233,8 +244,9 @@ D14UIKit 基本上是从 D14Engine 的 Common、Renderer 和 UIKit 模块迁移�
       * **release** (包含 ``/MD`` 版本的 DLL)
       * **D14UIKit.lib** (公共的库接口定义)
 
-  * **python** (最终的 Python 包装)
+  * **python** (导出的 Python 包装)
 
+    * **demo**
     * **D14UIKit.pyd** (Python 动态库模块)
     * **D14UIKit.pyi** (Python 提示文件)
 
