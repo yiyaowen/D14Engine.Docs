@@ -45,23 +45,23 @@ D14UIKit 基本上是从 D14Engine 的 Common、Renderer 和 UIKit 模块迁移�
 
       .. tab:: 仅更改源代码
 
-         点击上方链接下载 D14UIKit 资源包 **D14UIKit.zip**，解压后得到 D14UIKit 文件夹，然后将内容复制到项目根目录下。
+         点击上方链接下载 D14UIKit 资源包 **D14UIKit.zip**，解压得到 D14UIKit 文件夹，然后将内容复制到项目根目录中。
 
       .. tab:: 更改二进制文件
 
-         Lfs 中的 Python 脚本基于 py.paramiko 包来建立 SSH 连接：
+         Lfs 中的 Python 脚本基于 py.paramiko 建立 SSH 连接：
 
          .. sourcecode:: bat
 
             $ pip install paramiko
 
-         在 D14UIKit 的根目录下执行如下命令来下载所需的大文件：
+         在 D14UIKit 的根目录执行如下命令下载所需的大文件：
 
          .. sourcecode:: bat
 
             $ py Lfs/pull.py
 
-         上述操作需要验证，请联系 yiyaowen@github 获取密码。
+         上述操作需验证，请联系 yiyaowen@github 获取密码。
 
 万事俱备，可以着手开发 D14UIKit。整个项目的结构如下：
 
