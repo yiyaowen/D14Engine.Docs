@@ -3,7 +3,6 @@
 
 .. toctree::
    :maxdepth: 1
-   :hidden:
 
    hello_window
    hello_window_dpi
