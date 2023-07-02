@@ -72,7 +72,7 @@ D14UIKit 中的 DPI
                 return app.run();
             }
 
-    .. tab:: python
+    .. tab:: Python
 
         .. code-block:: python
             :emphasize-lines: 12
