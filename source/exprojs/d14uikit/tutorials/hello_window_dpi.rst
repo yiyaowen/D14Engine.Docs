@@ -62,13 +62,7 @@ D14UIKit 中的 DPI
                     dpi = 192.0f;
                 }
                 Application app(DEMO_NAME, dpi);
-
-                //------------------------------------------- Initialize UI objects.
-
                 MainWindow mwnd(DEMO_NAME);
-
-                //------------------------------------------- Set UI event callacks.
-
                 return app.run();
             }
 
@@ -89,11 +83,5 @@ D14UIKit 中的 DPI
                     dpi = 192.0
 
                 app = Application(DEMO_NAME, dpi)
-
-                #------------------------------------------- Initialize UI objects.
-
                 mwnd = MainWindow(DEMO_NAME)
-
-                #------------------------------------------- Set UI event callacks.
-
                 exit(app.run())
