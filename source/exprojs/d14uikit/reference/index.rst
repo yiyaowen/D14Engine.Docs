@@ -1,8 +1,11 @@
+.. _d14uikit-reference:
+
 API Reference
 =============
 
 .. toctree::
    :maxdepth: 1
 
-   cpp/index
-   python/index
+   application
+   basic_objects/index
+   ui_controls/index
