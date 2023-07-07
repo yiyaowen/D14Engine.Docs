@@ -1,4 +1,4 @@
-.. _d14uikit-tutorial-basic_callback:
+.. _d14uikit-tutorials-basic_callback:
 
 回调函数（基础）
 ================

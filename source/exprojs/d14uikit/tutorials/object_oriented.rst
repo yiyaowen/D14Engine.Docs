@@ -1,4 +1,4 @@
-.. _d14uikit-tutorial-object_oriented:
+.. _d14uikit-tutorials-object_oriented:
 
 面向对象的设计
 ==============

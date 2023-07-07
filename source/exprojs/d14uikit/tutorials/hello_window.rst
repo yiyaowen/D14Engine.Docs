@@ -1,4 +1,4 @@
-.. _d14uikit-tutorial-hello_window:
+.. _d14uikit-tutorials-hello_window:
 
 Hello Window
 ============
@@ -40,7 +40,7 @@ Hello Window
 
         .. note::
 
-           关于 C++ 包装中 ``\MDd`` 和 ``\MD`` 版本 DLL 的区别，在开发者指南的 :ref:`d14uikit-dev-build_cpp_wrapper` 部分有简要的介绍。对于D14UIKit 的使用者（而不是开发者）来说，只需要注意为 Debug 或 Release 版本的应用程序链接相应版本的 DLL 即可。
+           关于 C++ 包装中 ``\MDd`` 和 ``\MD`` 版本 DLL 的区别，在开发者指南的 :ref:`d14uikit-devs-build_cpp_wrapper` 部分有简要的介绍。对于D14UIKit 的使用者（而不是开发者）来说，只需要注意为 Debug 或 Release 版本的应用程序链接相应版本的 DLL 即可。
 
     .. tab:: Python
 

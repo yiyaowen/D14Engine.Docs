@@ -1,4 +1,4 @@
-.. _d14uikit-tutorial-modern_theme:
+.. _d14uikit-tutorials-modern_theme:
 
 现代化主题
 ==========

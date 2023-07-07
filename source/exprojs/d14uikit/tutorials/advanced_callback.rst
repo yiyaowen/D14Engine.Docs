@@ -1,4 +1,4 @@
-.. _d14uikit-tutorial-advanced_callback:
+.. _d14uikit-tutorials-advanced_callback:
 
 回调函数（进阶）
 ================

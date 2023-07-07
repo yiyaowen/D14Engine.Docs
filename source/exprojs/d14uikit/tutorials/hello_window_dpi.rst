@@ -1,4 +1,4 @@
-.. _d14uikit-tutorial-hello_window_dpi:
+.. _d14uikit-tutorials-hello_window_dpi:
 
 Hello Window (DPI)
 ==================

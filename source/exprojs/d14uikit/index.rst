@@ -18,15 +18,18 @@ D14UIKit 是一个适用于现代 Windows 桌面环境的 UI 库，提供了 C++
 
 对于不熟悉 D14UIKit 的开发者们，我们建议先阅读以下教程，以了解整体技术路线和基本使用方法：
 
-* :ref:`d14uikit-tutorial-hello_window`
-* :ref:`d14uikit-tutorial-hello_window_dpi`
-* :ref:`d14uikit-tutorial-object_oriented`
-* :ref:`d14uikit-tutorial-layout_control`
-* :ref:`d14uikit-tutorial-basic_callback`
-* :ref:`d14uikit-tutorial-modern_theme`
-* :ref:`d14uikit-tutorial-advanced_callback`
+* :ref:`d14uikit-tutorials-hello_window`
+* :ref:`d14uikit-tutorials-hello_window_dpi`
+* :ref:`d14uikit-tutorials-object_oriented`
+* :ref:`d14uikit-tutorials-layout_control`
+* :ref:`d14uikit-tutorials-basic_callback`
+* :ref:`d14uikit-tutorials-modern_theme`
+* :ref:`d14uikit-tutorials-advanced_callback`
 
-对于正在使用 D14UIKit 并希望进一步发挥其全部威力的开发者们，我们提供了详细的 :ref:`文档<d14uikit-reference>` 可供查询。
+对于正在使用 D14UIKit 并希望进一步发挥其全部威力的开发者们，我们提供了详细的文档可供查询：
+
+* :ref:`d14uikit-reference-cpp`
+* :ref:`d14uikit-reference-python`
 
 技术特色
 --------
