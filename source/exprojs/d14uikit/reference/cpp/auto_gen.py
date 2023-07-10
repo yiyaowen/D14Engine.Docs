@@ -104,11 +104,11 @@ void setEnabled(bool value);'''
                 paramsInfo = l[lpos:rpos+1]
                 suffixInfo = l[rpos+1:].strip()
                 # generate instance method
-                instm.append('    * - ' + retAndName[0] + \
-                    '\n      - :ref:`' + retAndName[1] + \
+                instm.append('  * - ' + retAndName[0] + \
+                    '\n    - :ref:`' + retAndName[1] + \
                     '<d14uikit-reference-cpp-ui_controls-' + root + \
                     '-isntm-' + underlName + '>` ' + \
-                    paramsInfo + '\n      - ' + suffixInfo)
+                    paramsInfo + '\n    - ' + suffixInfo)
                 # generate detailed description
                 ddesc.append('.. _d14uikit-reference-cpp-ui_controls-' + \
                              root + '-isntm-' + underlName + \

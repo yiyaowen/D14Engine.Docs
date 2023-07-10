@@ -100,8 +100,8 @@ virtual void onMove(MoveEvent* event);'''
                 paramsInfo = l[lpos:rpos+1]
                 suffixInfo = l[rpos+1:].strip()
                 # generate virtual method
-                vertm.append('    * - ' + retAndName[0] + \
-                    '\n      - :ref:`' + retAndName[1] + \
+                vertm.append('  * - ' + retAndName[0] + \
+                    '\n    - :ref:`' + retAndName[1] + \
                     '<d14uikit-reference-cpp-ui_controls-' + root + \
                     '-virtm-' + underlName + '>` ' + paramsInfo)
                 # generate detailed description
