@@ -331,186 +331,768 @@ Application 的显式构造函数。
 
 退出应用程序。
 
+* **备注**
+
+  该方法实际上通过发送 WM_QUIT 消息来通知系统终止 Win32 窗口的消息循环。此外它并不接收用于决定退出代码的参数，这是因为调用该方法意味着应用程序是正常终止的。如果需要在应用程序崩溃时通过退出代码来传递信息（不推荐），则只能通过标准库的 exit 系列函数来完成。
+
 .. _d14uikit-reference-cpp-application-isntm-visible:
 
   **bool visible() const**
+
+判断主窗口是否可见。
+
+* **返回值**
+
+  类型：**bool**
+
+  .. list-table::
+    :width: 100%
+
+    * - true
+      - 可见
+    * - false
+      - 不可见
 
 .. _d14uikit-reference-cpp-application-isntm-set_visible:
 
   **void setVisible(bool value)**
 
+设置主窗口是否可见。
+
+* **参数**
+
+  * ``value``
+
+    类型：**bool**
+
+    .. list-table::
+      :width: 100%
+
+      * - true
+        - 显示主窗口。
+      * - false
+        - 隐藏主窗口。
+
 .. _d14uikit-reference-cpp-application-isntm-minimized:
 
   **bool minimized() const**
+
+获取主窗口的最小化状态。
+
+* **返回值**
+
+  类型：**bool**
+
+  .. list-table::
+    :width: 100%
+
+    * - true
+      - 最小化
+    * - false
+      - 非最小化
 
 .. _d14uikit-reference-cpp-application-isntm-set_minimized:
 
   **void setMinimized(bool value)**
 
+设置主窗口的最小化状态。
+
+* **参数**
+
+  * ``value``
+
+    类型：**bool**
+
+    .. list-table::
+      :width: 100%
+
+      * - true
+        - 最小化主窗口。如果主窗口已经最小化，则无事发生。
+      * - false
+        - 如果主窗口已经最小化，则恢复到正常状态；否则无事发生。
+
 .. _d14uikit-reference-cpp-application-isntm-maximized:
 
   **bool maximized() const**
+
+获取主窗口的最大化状态。
+
+* **返回值**
+
+  类型：**bool**
+
+  .. list-table::
+    :width: 100%
+
+    * - true
+      - 最大化
+    * - false
+      - 非最大化
 
 .. _d14uikit-reference-cpp-application-isntm-set_maximized:
 
   **void setMaximized(bool value)**
 
+设置主窗口的最大化状态。
+
+* **参数**
+
+  * ``value``
+
+    类型：**bool**
+
+    .. list-table::
+      :width: 100%
+
+      * - true
+        - 最大化主窗口。如果主窗口已经最大化，则无事发生。
+      * - false
+        - 如果主窗口已经最大化，则恢复到正常状态；否则无事发生。
+
 .. _d14uikit-reference-cpp-application-isntm-size:
 
   **Size size() const**
+
+获取主窗口的 DIP 尺寸。
+
+* **返回值**
+
+  类型：**Size**
+
+  以 DIP 为单位的尺寸。
 
 .. _d14uikit-reference-cpp-application-isntm-set_size:
 
   **void setSize(const Size& value)**
 
+设置主窗口的 DIP 尺寸。
+
+* **参数**
+
+  * ``value``
+
+    类型：**const Size&**
+
+    以 DIP 为单位的尺寸。
+
 .. _d14uikit-reference-cpp-application-isntm-width:
 
   **int width() const**
+
+获取主窗口的 DIP 宽度。
+
+* **返回值**
+
+  类型：**int**
+
+  以 DIP 为单位的宽度。
 
 .. _d14uikit-reference-cpp-application-isntm-set_width:
 
   **void setWidth(int value)**
 
+设置主窗口的 DIP 宽度。
+
+* **参数**
+
+  * ``value``
+
+    类型：**int**
+
+    以 DIP 为单位的宽度。
+
 .. _d14uikit-reference-cpp-application-isntm-height:
 
   **int height() const**
+
+获取主窗口的 DIP 高度。
+
+* **返回值**
+
+  类型：**int**
+
+  以 DIP 为单位的高度。
 
 .. _d14uikit-reference-cpp-application-isntm-set_height:
 
   **void setHeight(int value)**
 
+设置主窗口的 DIP 高度。
+
+* **参数**
+
+  * ``value``
+
+    类型：**int**
+
+    以 DIP 为单位的高度。
+
 .. _d14uikit-reference-cpp-application-isntm-position:
 
   **Point position() const**
+
+获取主窗口的 DIP 坐标（以屏幕左上角为原点）。
+
+* **返回值**
+
+  类型：**Point**
+
+  以 DIP 为单位的坐标。
 
 .. _d14uikit-reference-cpp-application-isntm-set_position:
 
   **void setPosition(const Point& value)**
 
+设置主窗口的 DIP 坐标（以屏幕左上角为原点）。
+
+* **参数**
+
+  * ``value``
+
+    类型：**const Point&**
+
+    以 DIP 为单位的坐标。
+
 .. _d14uikit-reference-cpp-application-isntm-x:
 
   **int x() const**
+
+获取主窗口的 DIP 水平偏移（以屏幕左上角为原点）。
+
+* **返回值**
+
+  类型：**int**
+
+  以 DIP 为单位的水平偏移。
 
 .. _d14uikit-reference-cpp-application-isntm-set_x:
 
   **void setX(int value)**
 
+设置主窗口的 DIP 水平偏移（以屏幕左上角为原点）。
+
+* 参数
+
+  * ``value``
+
+    类型：**int**
+
+    以 DIP 为单位的水平偏移。
+
 .. _d14uikit-reference-cpp-application-isntm-y:
 
   **int y() const**
+
+获取主窗口的 DIP 垂直偏移（以屏幕左上角为原点）。
+
+* **返回值**
+
+  类型：**int**
+
+  以 DIP 为单位的垂直偏移。
 
 .. _d14uikit-reference-cpp-application-isntm-set_y:
 
   **void setY(int value)**
 
+设置主窗口的 DIP 垂直偏移（以屏幕左上角为原点）。
+
+* 参数
+
+  * ``value``
+
+    类型：**int**
+
+    以 DIP 为单位的垂直偏移。
+
 .. _d14uikit-reference-cpp-application-isntm-min_size:
 
   **Size minSize() const**
+
+获取主窗口的 DIP 最小尺寸。
+
+* **返回值**
+
+  类型：**Size**
+
+  以 DIP 为单位的最小尺寸。
 
 .. _d14uikit-reference-cpp-application-isntm-set_min_size:
 
   **void setMinSize(const Size& value)**
 
+设置主窗口的 DIP 最小尺寸。
+
+* **参数**
+
+  * ``value``
+
+    类型：**const Size&**
+
+    以 DIP 为单位的最小尺寸。
+
 .. _d14uikit-reference-cpp-application-isntm-min_width:
 
   **int minWidth() const**
+
+获取主窗口的 DIP 最小宽度。
+
+* **返回值**
+
+  类型：**int**
+
+  以 DIP 为单位的最小宽度。
 
 .. _d14uikit-reference-cpp-application-isntm-set_min_width:
 
   **void setMinWidth(int value)**
 
+设置主窗口的 DIP 最小宽度。
+
+* **参数**
+
+  * ``value``
+
+    类型：**int**
+
+    以 DIP 为单位的最小宽度。
+
 .. _d14uikit-reference-cpp-application-isntm-min_height:
 
   **int minHeight() const**
+
+获取主窗口的 DIP 最小高度。
+
+* **返回值**
+
+  类型：**int**
+
+  以 DIP 为单位的最小高度。
 
 .. _d14uikit-reference-cpp-application-isntm-set_min_height:
 
   **void setMinHeight(int value)**
 
+设置主窗口的 DIP 最小高度。
+
+* **参数**
+
+  * ``value``
+
+    类型：**int**
+
+    以 DIP 为单位的最小高度。
+
 .. _d14uikit-reference-cpp-application-isntm-resizable:
 
   **bool resizable() const**
+
+判断主窗口是否可缩放。
+
+* **返回值**
+
+  类型：**bool**
+
+  .. list-table::
+    :width: 100%
+
+    * - true
+      - 可缩放
+    * - false
+      - 不可缩放
 
 .. _d14uikit-reference-cpp-application-isntm-set_resizable:
 
   **void setResizable(bool value)**
 
+设置主窗口是否可缩放。
+
+* **参数**
+
+  * ``value``
+
+    类型：**bool**
+
+    .. list-table::
+      :width: 100%
+
+      * - true
+        - 启用主窗口缩放。
+      * - false
+        - 禁用主窗口缩放。
+
 .. _d14uikit-reference-cpp-application-isntm-fullscreen:
 
   **bool fullscreen() const**
+
+获取应用程序的显示状态（是否全屏）。
+
+* **返回值**
+
+  类型：**bool**
+
+  .. list-table::
+    :width: 100%
+
+    * - true
+      - 全屏化
+    * - false
+      - 窗口化
 
 .. _d14uikit-reference-cpp-application-isntm-set_fullscreen:
 
   **void setFullscreen(bool value)**
 
+设置应用程序的显示状态（是否全屏）。
+
+* **参数**
+
+  * ``value``
+
+    类型：**bool**
+
+    .. list-table::
+      :width: 100%
+
+      * - true
+        - 全屏化应用程序。
+      * - false
+        - 窗口化应用程序。
+
 .. _d14uikit-reference-cpp-application-isntm-fps:
 
   **int fps() const**
+
+获取应用程序界面的刷新速率。
+
+* **返回值**
+
+  类型：**int**
+
+  以 FPS 为单位的刷新速率。
 
 .. _d14uikit-reference-cpp-application-isntm-low_energy:
 
   **bool lowEnergy() const**
 
+获取应用程序的工作模式（是否全速渲染）。
+
+* **返回值**
+
+  类型：**bool**
+
+  .. list-table::
+    :width: 100%
+
+    * - true
+      - 节能模式（适用于界面元素变化不大的静态程序）
+    * - false
+      - 引擎模式（适用于游戏、视频等复杂的动态程序）
+
 .. _d14uikit-reference-cpp-application-isntm-set_low_energy:
 
   **void setLowEnergy(bool value)**
+
+设置应用程序的工作模式（是否全速渲染）。
+
+* **参数**
+
+  * ``value``
+
+    类型：**bool**
+
+    .. list-table::
+      :width: 100%
+
+      * - true
+        - 启用节能模式，只在必要时渲染。
+      * - false
+        - 启用引擎模式，全速地实时渲染。
 
 .. _d14uikit-reference-cpp-application-isntm-theme_mode:
 
   **const std::wstring& themeMode() const**
 
+获取应用程序的主题模式。
+
+* **返回值**
+
+  类型：**const std::wstring&**
+
+  .. list-table::
+    :width: 100%
+
+    * - Light
+      - 浅色模式
+    * - Dark
+      - 深色模式
+
 .. _d14uikit-reference-cpp-application-isntm-set_theme_mode:
 
   **void setThemeMode(const std::wstring& name)**
+
+设置应用程序的主题模式。
+
+* **参数**
+
+  * ``name``
+
+    类型：**const std::wstring&**
+
+    主题模式的名称，目前只支持两种：
+
+    .. list-table::
+      :width: 100%
+
+      * - Light
+        - 切换浅色模式。
+      * - Dark
+        - 切换深色模式。
 
 .. _d14uikit-reference-cpp-application-isntm-theme_color:
 
   **Color themeColor() const**
 
+获取应用程序的主题颜色。
+
+* **返回值**
+
+  类型：**Color**
+
+  应用程序的主题颜色。
+
 .. _d14uikit-reference-cpp-application-isntm-set_theme_color:
 
   **void setThemeColor(const Color& value)**
+
+设置应用程序的主题颜色。
+
+* **参数**
+
+  * ``value``
+
+    类型：**const Color&**
+
+    应用程序的主题颜色
 
 .. _d14uikit-reference-cpp-application-isntm-use_system_theme:
 
   **bool useSystemTheme() const**
 
+判断应用程序的主题是否跟随系统设置。
+
+* **返回值**
+
+  类型：**bool**
+
+  .. list-table::
+    :width: 100%
+
+    * - true
+      - 使用系统设置
+    * - false
+      - 不使用系统设置
+
 .. _d14uikit-reference-cpp-application-isntm-set_use_system_theme:
 
   **void setUseSystemTheme(bool value)**
+
+设置应用程序的主题是否跟随系统设置。
+
+* **参数**
+
+  * ``value``
+
+    类型：**bool**
+
+    .. list-table::
+      :width: 100%
+
+      * - true
+        - 使用系统设置，适配模式和颜色。
+      * - false
+        - 不使用系统设置，用户可自定义。
 
 .. _d14uikit-reference-cpp-application-isntm-lang_locale:
 
   **const std::wstring& langLocale() const**
 
+获取应用程序的语言与区域。
+
+* **返回值**
+
+  类型：**const std::wstring&**
+
+  xx-yy 式的语言与区域代码，例如：
+
+  .. list-table::
+    :width: 100%
+
+    * - en-us
+      - 美式英语
+    * - zh-cn
+      - 简体中文
+
 .. _d14uikit-reference-cpp-application-isntm-set_lang_locale:
 
   **void setLangLocale(const std::wstring& name)**
+
+设置应用程序的语言与区域。
+
+* **参数**
+
+  * ``name``
+
+    类型：**const std::wstring&**
+
+    xx-yy 式的语言与区域代码，例如：
+
+    .. list-table::
+      :width: 100%
+
+      * - en-us
+        - 美式英语
+      * - zh-cn
+        - 简体中文
 
 .. _d14uikit-reference-cpp-application-isntm-clear_type:
 
   **bool clearType() const**
 
+获取应用程序的字体渲染方案。
+
+* **返回值**
+
+  类型：**bool**
+
+  .. list-table::
+    :width: 100%
+
+    * - true
+      - ClearType
+    * - false
+      - Grayscale
+
 .. _d14uikit-reference-cpp-application-isntm-set_clear_type:
 
   **void setClearType(bool value)**
+
+设置应用程序的字体渲染方案。
+
+* **参数**
+
+  * ``value``
+
+    类型：**bool**
+
+    .. list-table::
+      :width: 100%
+
+      * - true
+        - 使用 ClearType 技术，额外考虑背景色，彩色平滑。
+      * - false
+        - 使用 Grayscale 技术，仅考虑字形本身，灰色平滑。
 
 .. _d14uikit-reference-cpp-application-isntm-text_vert_smooth:
 
   **bool textVertSmooth() const**
 
+判断应用程序是否在垂直方向对字体进行平滑。
+
+* **返回值**
+
+  类型：**bool**
+
+  .. list-table::
+    :width: 100%
+
+    * - true
+      - 进行垂直平滑
+    * - false
+      - 不进行垂直平滑
+
 .. _d14uikit-reference-cpp-application-isntm-set_text_vert_smooth:
 
   **void setTextVertSmooth(bool value)**
+
+设置应用程序是否在垂直方向对字体进行平滑。
+
+* **参数**
+
+  * ``value``
+
+    类型：**bool**
+
+    .. list-table::
+      :width: 100%
+
+      * - true
+        - 启用垂直平滑，显示更清晰，对性能有要求。
+      * - false
+        - 禁用垂直平滑，正常地显示，性能要求不高。
 
 .. _d14uikit-reference-cpp-application-isntm-bmp_quality_interp:
 
   **bool bmpQualityInterp() const**
 
+获取应用程序的图像插值方案。
+
+* **返回值**
+
+  类型：**bool**
+
+  .. list-table::
+    :width: 100%
+
+    * - true
+      - 高质量三次方插值
+    * - false
+      - 默认的线性插值
+
 .. _d14uikit-reference-cpp-application-isntm-set_bmp_quality_interp:
 
   **void setBmpQualityInterp(bool value)**
 
+设置应用程序的图像插值方案。
+
+* **参数**
+
+  * ``value``
+
+    类型：**bool**
+
+    .. list-table::
+      :width: 100%
+
+      * - true
+        - 使用高质量三次方插值，显示更清晰，对性能有要求。
+      * - false
+        - 使用默认的线性插值，正常地显示，性能要求不高。
+
 .. _d14uikit-reference-cpp-application-isntm-capture:
 
   **std::unique_ptr<Image> capture() const**
+
+捕获应用程序主窗口的帧图像。
+
+* **返回值**
+
+  类型：**std::unique_ptr<Image>**
+
+  应用程序主窗口的帧图像。
+
+* **备注**
+
+  通过该方法可以实现高性能截图，例如点击按钮保存图像的功能：
+
+  .. code-block:: c++
+    :emphasize-lines: 3
+
+    button.D14_onMouseButtonRelease(clkp, e, )
+    {
+        auto frame = Application::app()->capture();
+
+        // some intermediate operation
+
+        frame->save(L"Screenshot.png");
+    };
