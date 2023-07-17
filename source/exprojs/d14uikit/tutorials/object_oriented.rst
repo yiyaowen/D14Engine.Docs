@@ -108,7 +108,7 @@ Panel 是 D14UIKit 中最为基本的 UI 对象，它代表了屏幕上的一块
             imgArea.position = Point(20, 0)
             imgArea.image = img
 
-演示程序中使用的 test.png 如下：
+演示程序中使用的 test.png 如下（也可以在导出库的 demo 目录下找到）：
 
 .. image:: https://d14games.com/downloads/D14Logo.png
 
