@@ -5,6 +5,10 @@
 
 .. image:: https://raw.githubusercontent.com/yiyaowen/D14Engine.Docs.Img/main/d14uikit/tutorials/basic_callback.png
 
+.. note::
+
+  教程中各演示程序的源代码均随导出库一同发放，可在 demo 目录下查看。
+
 在本节中我们将创建一个能自定义主窗口标题的应用程序，以演示 D14UIKit 中回调函数的基础用法。
 
 创建 UI 对象

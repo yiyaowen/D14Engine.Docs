@@ -5,6 +5,10 @@ Hello Window
 
 .. image:: https://raw.githubusercontent.com/yiyaowen/D14Engine.Docs.Img/main/d14uikit/tutorials/hello_window.png
 
+.. note::
+
+  教程中各演示程序的源代码均随导出库一同发放，可在 demo 目录下查看。
+
 准备工作
 --------
 

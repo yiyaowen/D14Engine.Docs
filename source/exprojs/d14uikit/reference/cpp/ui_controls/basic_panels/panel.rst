@@ -68,17 +68,26 @@ Panel 是 D14UIKit 中最为基本的 UI 对象，它代表了屏幕上的一块
   * - Point
     - :ref:`position<d14uikit-reference-cpp-ui_controls-panel-isntm-position>` ()
     - const
+  * - Point
+    - :ref:`absPosition<d14uikit-reference-cpp-ui_controls-panel-isntm-abs_position>` ()
+    - const
   * - void
     - :ref:`setPosition<d14uikit-reference-cpp-ui_controls-panel-isntm-set_position>` (const Point& value)
     -
   * - int
     - :ref:`x<d14uikit-reference-cpp-ui_controls-panel-isntm-x>` ()
     - const
+  * - int
+    - :ref:`absX<d14uikit-reference-cpp-ui_controls-panel-isntm-abs_x>` ()
+    - const
   * - void
     - :ref:`setX<d14uikit-reference-cpp-ui_controls-panel-isntm-set_x>` (int value)
     -
   * - int
     - :ref:`y<d14uikit-reference-cpp-ui_controls-panel-isntm-y>` ()
+    - const
+  * - int
+    - :ref:`absY<d14uikit-reference-cpp-ui_controls-panel-isntm-abs_y>` ()
     - const
   * - void
     - :ref:`setY<d14uikit-reference-cpp-ui_controls-panel-isntm-set_y>` (int value)
@@ -453,7 +462,19 @@ Panel 的默认构造函数。
 
   **Point position() const**
 
-获取矩形区域的 DIP 坐标（以父对象左上角为原点）。
+获取矩形区域的相对 DIP 坐标（以父对象左上角为原点）。
+
+* **返回值**
+
+  类型：**Point**
+
+  以 DIP 为单位的坐标。
+
+.. _d14uikit-reference-cpp-ui_controls-panel-isntm-abs_position:
+
+  **Point absPosition() const**
+
+获取矩形区域的绝对 DIP 坐标（以根窗口左上角为原点）。
 
 * **返回值**
 
@@ -465,7 +486,7 @@ Panel 的默认构造函数。
 
   **void setPosition(const Point& value)**
 
-设置矩形区域的 DIP 坐标（以父对象左上角为原点）。
+设置矩形区域的相对 DIP 坐标（以父对象左上角为原点）。
 
 * **参数**
 
@@ -479,7 +500,19 @@ Panel 的默认构造函数。
 
   **int x() const**
 
-获取矩形区域的 DIP 水平偏移（以父对象左上角为原点）。
+获取矩形区域的相对 DIP 水平偏移（以父对象左上角为原点）。
+
+* **返回值**
+
+  类型：**int**
+
+  以 DIP 为单位的水平偏移。
+
+.. _d14uikit-reference-cpp-ui_controls-panel-isntm-abs_x:
+
+  **int absX() const**
+
+获取矩形区域的绝对 DIP 水平偏移（以根窗口左上角为原点）。
 
 * **返回值**
 
@@ -491,7 +524,7 @@ Panel 的默认构造函数。
 
   **void setX(int value)**
 
-设置矩形区域的 DIP 水平偏移（以父对象左上角为原点）。
+设置矩形区域的相对 DIP 水平偏移（以父对象左上角为原点）。
 
 * **参数**
 
@@ -505,7 +538,19 @@ Panel 的默认构造函数。
 
   **int y() const**
 
-获取矩形区域的 DIP 垂直偏移（以父对象左上角为原点）。
+获取矩形区域的相对 DIP 垂直偏移（以父对象左上角为原点）。
+
+* **返回值**
+
+  类型：**int**
+
+  以 DIP 为单位的垂直偏移。
+
+.. _d14uikit-reference-cpp-ui_controls-panel-isntm-abs_y:
+
+  **int absY() const**
+
+获取矩形区域的绝对 DIP 垂直偏移（以根窗口左上角为原点）。
 
 * **返回值**
 
@@ -517,7 +562,7 @@ Panel 的默认构造函数。
 
   **void setY(int value)**
 
-设置矩形区域的 DIP 垂直偏移（以父对象左上角为原点）。
+设置矩形区域的相对 DIP 垂直偏移（以父对象左上角为原点）。
 
 * **参数**
 
