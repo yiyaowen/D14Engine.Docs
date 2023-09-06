@@ -30,7 +30,7 @@ D14UIKit 基本上是从 D14Engine 的 Common、Renderer 和 UIKit 模块迁移�
 
 .. sourcecode:: bat
 
-   $ git clone https://github.com/yiyaowen/D14UIKit --depth=1
+   > git clone https://github.com/yiyaowen/D14UIKit --depth=1
 
 由于 git 对大文件的支持并不完善（git-lfs 有容量和带宽限制），我们在 D14UIKit 中使用了 `Lfs`_ 子模块来管理项目中的二进制资源。该模块基于私有服务器，D14UIKit 默认托管在 ubuntu@d14games.com 上，为了构建项目，首先需要下载 :download:`D14UIKit 资源包 <https://d14games.com/downloads/developer/D14UIKit.zip>`，然后将其复制到原始项目中。
 
@@ -53,13 +53,13 @@ D14UIKit 基本上是从 D14Engine 的 Common、Renderer 和 UIKit 模块迁移�
 
          .. sourcecode:: bat
 
-            $ pip install paramiko
+            > pip install paramiko
 
          在项目根目录下执行如下命令下载项目资源文件（相关概念与 git 类似）：
 
          .. sourcecode:: bat
 
-            $ py Lfs/pull.py
+            > py Lfs/pull.py
 
          该文件下载操作需要密码进行验证（请联系 yiyaowen@github 获取）。
 
@@ -67,8 +67,8 @@ D14UIKit 基本上是从 D14Engine 的 Common、Renderer 和 UIKit 模块迁移�
 
          .. sourcecode:: bat
 
-            $ py Lfs/add.py
-            $ py Lfs/push.py
+            > py Lfs/add.py
+            > py Lfs/push.py
 
 万事俱备，可以着手开发 D14UIKit。整个项目的结构如下：
 
@@ -110,7 +110,7 @@ D14UIKit 基本上是从 D14Engine 的 Common、Renderer 和 UIKit 模块迁移�
 
    .. sourcecode:: bat
 
-      $ pip install mypy
+      > pip install mypy
 
    如果你有更好的工具，可以修改 **package.ps1** 来替换掉它。
 
@@ -175,17 +175,23 @@ D14UIKit 基本上是从 D14Engine 的 Common、Renderer 和 UIKit 模块迁移�
 
    .. sourcecode:: bat
 
-      $ pip install pybind11
+      > pip install pybind11
 
-   并将以下命令的输出添加到项目的包含路径中：
+   然后将以下命令的输出添加到项目的包含目录中：
 
    .. sourcecode:: bat
 
-      $ py -m pybind11 --includes
+      > py -m pybind11 --includes
+
+   并将该包对应的 lib 路径添加到项目的库目录中。
 
    相关的细节，可以参考这篇在 MSDN 上的 `文章`_。
 
 .. _文章: https://learn.microsoft.com/en-us/visualstudio/python/working-with-c-cpp-python-in-visual-studio?view=vs-2022
+
+.. note::
+
+   项目默认的 Python 路径为 ``%UserProfile%\AppData\Local\Programs\Python\Python310``，因此如果你使用 Python 3.10.x 并将其安装在默认目录下，则无需更改项目的包含目录和库目录。
 
 测试 C++ 包装
 -------------
@@ -268,4 +274,4 @@ D14UIKit 基本上是从 D14Engine 的 Common、Renderer 和 UIKit 模块迁移�
 
    .. sourcecode:: bat
 
-      $ powershell -f package.ps1 v1_0
+      > powershell -f package.ps1 v1_0

@@ -91,7 +91,7 @@ Hello Window
 
     .. sourcecode:: bat
 
-      $ cl HelloWindow.cpp /std:c++20 /I include /MDd /link D14UIKit.lib
+      > cl HelloWindow.cpp /std:c++20 /I include /MDd /link D14UIKit.lib
 
   .. tab:: Python
 
