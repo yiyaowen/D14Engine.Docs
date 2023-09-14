@@ -149,7 +149,7 @@ ConstraintLayout 的 GeoInfo 结构体中，除了 Xxx.ToYyy 形式的用于约�
             int main(int argc, char* argv[])
             {
                 float dpi = 96.0f;
-                if (argc >= 2 && strcmp(argv[1], "HighDPI"))
+                if (argc >= 2 && strcmp(argv[1], "HighDPI") == 0)
                 {
                     dpi = 192.0f;
                 }

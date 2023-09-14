@@ -61,7 +61,7 @@ D14UIKit 中的 DPI
             int main(int argc, char* argv[])
             {
                 float dpi = 96.0f;
-                if (argc >= 2 && strcmp(argv[1], "HighDPI"))
+                if (argc >= 2 && strcmp(argv[1], "HighDPI") == 0)
                 {
                     dpi = 192.0f;
                 }
