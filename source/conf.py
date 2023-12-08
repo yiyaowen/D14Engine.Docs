@@ -18,11 +18,6 @@ extensions = ['sphinx_tabs.tabs']
 
 sphinx_tabs_disable_tab_closing = True
 
-# -- Options for internationalization
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-internationalization
-
-language = 'zh_CN'
-
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
